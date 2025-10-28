@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nhật - Visa · Cẩm nang hồ sơ Visa quốc tế</title>
-  <link rel="stylesheet" href="dist/tailwind.css">
+    <link rel="stylesheet" href="dist/tailwind.css">
   <link rel="preload" href="./tailwind.css" as="style">
   <link rel="preload" href="./manifest.json" as="fetch" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -282,6 +282,16 @@
       }
     }
   </style>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4f46e5">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered:', reg.scope))
+        .catch(err => console.error('❌ SW registration failed:', err));
+    });
+  }
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
   
