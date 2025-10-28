@@ -1855,10 +1855,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
   </script>
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js').then(function(reg){
-    console.log('Service Worker registered', reg);
-  }).catch(function(err){ console.warn('SW registration failed', err); });
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("./service-worker.js")
+        .then(reg => console.log("[PWA] Service Worker registered:", reg))
+        .catch(err => console.error("[PWA] SW registration failed:", err));
+    });
 }
 
 let deferredPrompt;
